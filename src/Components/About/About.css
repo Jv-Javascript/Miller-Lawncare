@@ -1,0 +1,124 @@
+.about-container {
+  text-align: center;
+  margin: 0 auto;
+  position: relative; /* Needed for overlay positioning */
+  background: url("https://cdn.carrot.com/uploads/sites/33242/2021/08/chicago-great-lawn.jpeg")
+    no-repeat center center/cover; /* Replace with direct image link */
+  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden; /* Ensures the overlay fits the container */
+}
+
+/* Dark Overlay */
+.about-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
+  z-index: 1;
+}
+
+/* Ensures content is above the overlay */
+.about-content,
+.title-section,
+.about-us {
+  position: relative;
+  z-index: 2;
+}
+
+.about-us {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 300px; /* Adjust the image size */
+  cursor: pointer;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional: Add a border radius for better visuals */
+}
+
+.about-text {
+  flex: 2;
+  text-align: left;
+  font-size: 20px; /* Slightly reduced for better balance */
+  color: #0c0c0c;
+  max-width: 650px; /* Increased width for a more spacious layout */
+  line-height: 1.8; /* Improved line spacing for readability */
+  font-family: "Inter", sans-serif; /* Clean, modern font */
+  padding: 20px; /* Added padding for breathing space */
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px; /* Soft rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+.about-text strong {
+  font-weight: 700; /* Adjust weight as needed (400 = normal, 700 = bold) */
+  color: green;
+  font-size: 28px; /* Optional: Keep consistent color */
+}
+
+.about-text p {
+  line-height: 1.8;
+  margin-top: 15px; /* More space between paragraphs */
+  font-weight: 400; /* Balanced font weight */
+}
+
+/* Mobile View (Stack Image and Text) */
+@media (max-width: 600px) {
+  .about-container {
+    padding: 15px;
+  }
+
+  .about-content {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center;
+    gap: 10px; /* Space between image and text */
+  }
+
+  .about-image {
+    max-width: 80%; /* Reduce image width on small screens */
+    width: 200px;
+    height: auto;
+    margin: 0 auto; /* Center the image */
+  }
+
+  .about-text {
+    max-width: 100%;
+    text-align: center; /* Center text on mobile */
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet View (For Medium-Sized Screens) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .about-content {
+    gap: 15px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}

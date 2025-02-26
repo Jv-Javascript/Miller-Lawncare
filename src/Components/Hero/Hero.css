@@ -1,174 +1,200 @@
-/* Full viewport height with background images */
-.hero-container {
-  height: 100vh;
-  background-image: url("https://cdn.mos.cms.futurecdn.net/u6VRh7sWEHVSQodpDpczHi-1280-80.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* ========================== */
+/*           HERO             */
+/* ========================== */
+.hero {
+  background: #f85c24;
+  width: 100%;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 60px;
   text-align: center;
   position: relative;
-  color: white;
-  overflow: hidden;
 }
 
-/* Semi-transparent overlay to enhance readability */
-.hero-overlay {
+.intro {
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.thin-text {
+  font-weight: 350;
+}
+
+/* ========================== */
+/*       BLACK SECTION        */
+/* ========================== */
+.black-section {
+  background: #1d1d1d;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.308);
-}
-
-/* Content styling */
-.hero-content {
-  z-index: 1;
-  padding: 40px;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 35px;
-  max-width: 700px;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* Title styling */
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-/* Description styling */
-.hero-description {
-  font-size: 1.25rem;
-  font-weight: 400;
-  margin-bottom: 25px;
-  line-height: 1.8;
-  color: #f0f0f0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-  padding: 0 20px;
-}
-
-/* Button styling */
-.hero-button {
-  background-color: #4caf50;
+  height: 450px;
   color: white;
-  font-size: 1.3rem;
-  padding: 16px 30px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 20px; /* Space below the button */
-}
-
-.hero-button:hover {
-  background-color: #45a049;
-  scale: 1.1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.hero-button:active {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Contact Info Section */
-.contact-info {
-  display: flex;
-  justify-content: center;
-  gap: 0px; /* Adjust the gap between the items */
-  margin-top: 10px; /* Space above the contact info */
-  background: transparent !important;
-}
-
-/* Individual contact item */
-.contact-item {
   display: flex;
   align-items: center;
-  font-size: 16px; /* Increased font size */
-  color: #f0f0f0; /* Matching the description color */
-  text-decoration: none;
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
 }
 
-/* Styling the icons */
-.contact-item svg {
-  margin-right: 12px; /* Increased space between the icon and text */
-  width: 30px; /* Icon size */
-  height: 30px; /* Icon size */
-  fill: #f0f0f0; /* Ensure the icons are white (or use another color) */
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
+.black-section-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
 }
 
-/* Hover Effect - Scale contact item */
-.contact-item:hover {
-  transform: scale(1.2); /* Scale the entire contact item on hover */
+.text-content {
+  font-size: 70px;
+  font-weight: bold;
+  text-align: left;
 }
 
-/* Hover Effect for Icons - Scale icons */
-.contact-item:hover svg {
-  transform: scale(1.2); /* Scale the icon on hover */
+/* ========================== */
+/*         IMAGE STYLES       */
+/* ========================== */
+.image-container {
+  position: absolute;
+  bottom: -66px;
+  right: 100px;
+  width: 600px;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Media Queries for responsiveness */
-@media screen and (max-width: 768px) {
-  .hero-container {
+.overlapping-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; /* Ensures full visibility */
+  transform: scaleX(-1); /* Mirrors the image */
+}
+
+/* ========================== */
+/*        IMAGE EFFECTS       */
+/* ========================== */
+.image-container.move-left {
+  transform: translateX(-50px);
+}
+
+.image-container.move-right {
+  transform: translateX(50px);
+}
+
+.image-container.move-up {
+  transform: translateY(-50px);
+}
+
+.image-container.move-down {
+  transform: translateY(50px);
+}
+
+.image-container.scale-small {
+  transform: scale(0.8);
+}
+
+.image-container.scale-large {
+  transform: scale(1.2);
+}
+
+/* ========================== */
+/*  RESPONSIVE DESIGN (TABLET) */
+/* ========================== */
+@media (max-width: 1024px) {
+  .hero {
+    height: 250px;
+    font-size: 20px;
+    padding-top: 40px;
+  }
+
+  .intro {
+    font-size: 18px;
+    left: 5px;
+    bottom: 5px;
+  }
+
+  .black-section {
     height: auto;
-    padding: 50px 20px;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
   }
 
-  .hero-content {
-    max-width: 90%;
-    padding: 20px;
+  .black-section-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
+  .text-content {
+    font-size: 50px;
   }
 
-  .hero-description {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
-
-  .hero-button {
-    font-size: 1.1rem;
-    padding: 12px 20px;
-  }
-
-  .contact-info {
-    flex-direction: column; /* Stack the items vertically on small screens */
-    gap: 10px; /* Smaller gap for stacked layout */
+  .image-container {
+    position: static;
+    width: 450px;
+    margin-top: 20px;
+    transform: scale(1);
   }
 }
 
-@media screen and (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
+/* ========================== */
+/*  RESPONSIVE DESIGN (MOBILE) */
+/* ========================== */
+@media (max-width: 767px) {
+  .hero {
+    height: 200px;
+    font-size: 18px;
+    padding-top: 30px;
   }
 
-  .hero-description {
-    font-size: 0.9rem;
-    padding: 0 10px;
+  .intro {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
   }
 
-  .hero-button {
-    font-size: 1rem;
-    padding: 10px 18px;
+  .black-section {
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+    padding: 0px;
   }
 
-  .contact-info {
-    gap: 8px; /* Even smaller gap */
+  .black-section-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-content {
+    font-size: 17px;
+    text-align: left; /* Aligns text to the left */
+    width: 100%; /* Ensures full-width if needed */
+    padding-left: 30px; /* Adds space from the left */
+    padding-top: 30px;
+  }
+
+  .bold-text {
+    font-weight: 700; /* Ensures boldness */
+    font-size: 30px; /* Adjust font size */
+    text-transform: uppercase; /* Make text uppercase */
+    line-height: 1; /* Optimal spacing */
+    letter-spacing: -0.5px; /* Slightly tightens letter spacing */
+    margin: 0; /* Ensures no extra margin */
+    padding: 0;
   }
 }

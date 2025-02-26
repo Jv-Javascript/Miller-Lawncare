@@ -1,0 +1,84 @@
+#about {
+  background-color: #1d1d1d; /* Dark background */
+  color: white; /* Ensure text is visible */
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#about header {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a1a; /* Dark background */
+  color: white; /* White text for contrast */
+  padding: 20px;
+  width: 100%; /* Ensure full width */
+}
+
+#about footer {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-group-container {
+  height: 400vh;
+  position: relative;
+}
+
+.img-group-container > div {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.img-group {
+  display: flex;
+}
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(80px) scale(0.9);
+  opacity: 0;
+  transition: opacity 1s ease-out, transform 1.2s ease-out;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.img-container.active {
+  transform: translateY(0px) scale(1);
+  opacity: 1; /* Fully visible when active */
+}
+
+.img-container.inactive {
+  opacity: 0; /* Fade out when inactive */
+}
+
+.img-container h3 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.img-container p {
+  font-size: 20px;
+  max-width: 600px;
+  line-height: 1.5;
+}

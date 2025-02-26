@@ -1,113 +1,70 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import millerlogo from "../../assets/millerlogo.jpg";
-import { Menu, X } from "lucide-react";
+import { Menu, X, SunDim, MoonStar } from "lucide-react"; // Improved Icons
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleScroll = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      // Add padding to the section to avoid navbar blocking the title
-      element.style.paddingTop = "120px"; // Adjust this value to match your navbar height
-
-      // Scroll to the section with smooth behavior
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
-      // After scrolling, remove the padding
-      setTimeout(() => {
-        element.style.paddingTop = "";
-      }, 10000000000000); // Adjust timeout if necessary
-    }
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
   };
-
-  const handleScrollMotion = () => {
-    const sections = document.querySelectorAll(".scroll-section"); // You can mark each section with a class like "scroll-section"
-    sections.forEach((section) => {
-      const sectionPosition = section.getBoundingClientRect();
-      if (
-        sectionPosition.top < window.innerHeight &&
-        sectionPosition.bottom >= 0
-      ) {
-        // This section is visible in the viewport
-        section.classList.add("animate"); // Add a class to trigger animation
-      } else {
-        section.classList.remove("animate"); // Remove animation class when not in viewport
-      }
-    });
-  };
-
-  useEffect(() => {
-    // Listen to the scroll event to trigger animation on scroll
-    window.addEventListener("scroll", handleScrollMotion);
-
-    // Clean up the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener("scroll", handleScrollMotion);
-    };
-  }, []);
 
   return (
     <nav className="navbar">
-      <div className="logo-container">
-        <img src={millerlogo} alt="Miller Logo" className="logo" />
-        <h1 className="brand-name">Miller Lawncare & Snow Removal</h1>
-      </div>
+      <h1 className="brand-name">JMedia</h1>
 
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {isOpen ? <X size={30} /> : <Menu size={30} />}
-      </button>
+      <div className="nav-actions">
+        {/* Dark Mode Toggle */}
+        <button className="dark-mode-toggle" onClick={toggleDarkMode}>
+          <div className={`toggle-circle ${darkMode ? "dark" : ""}`}>
+            {darkMode ? (
+              <MoonStar size={40} className="moon-icon" /> // Increased size
+            ) : (
+              <SunDim size={40} className="sun-icon" /> // Increased size
+            )}
+          </div>
+        </button>
+
+        {/* Hamburger Menu */}
+        <button className="menu-toggle" onClick={toggleMenu}>
+          {isOpen ? <X size={40} /> : <Menu size={40} />}
+        </button>
+      </div>
 
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li>
-          <a
-            href="#home"
-            onClick={() => {
-              handleScroll("home");
-              setIsOpen(false); // Closes the menu after clicking
-            }}
-          >
+          <a href="#home" onClick={() => setIsOpen(false)}>
             Home
           </a>
         </li>
         <li>
-          <a
-            href="#services"
-            onClick={() => {
-              toggleMenu();
-              handleScroll("services");
-            }}
-          >
+          <a href="#services" onClick={() => setIsOpen(false)}>
             Services
           </a>
         </li>
         <li>
-          <a
-            href="#about"
-            onClick={() => {
-              toggleMenu();
-              handleScroll("about");
-            }}
-          >
+          <a href="#about" onClick={() => setIsOpen(false)}>
             About
           </a>
         </li>
         <li>
-          <a
-            href="#contact"
-            onClick={() => {
-              toggleMenu();
-              handleScroll("contact");
-            }}
-          >
+          <a href="#contact" onClick={() => setIsOpen(false)}>
             Contact
           </a>
         </li>

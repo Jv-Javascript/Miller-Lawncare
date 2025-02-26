@@ -1,20 +1,21 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
+import Movinginfo from "./Components/Movinginfo/Movinginfo";
+import Moscroll from "./Components/Moscroll/Moscroll";
 import About from "./Components/About/About";
-import Services from "./Components/Services/Services";
-import Contactus from "./Components/Contactus/Contactus";
-import Footer from "./Components/Footer/Footer";
+import Motionabout from "./Components/Motionabout/Motionabout";
+import Mo3d from "./Components/Mo3d/Mo3d";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <Hero />
-      <Services />
-      <About />
-      <Contactus />
-      <Footer />
+      <Moscroll />
+      <Movinginfo />
+      <Motionabout />
+      <Mo3d />
     </div>
   );
 };

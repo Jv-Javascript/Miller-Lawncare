@@ -1,0 +1,48 @@
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #1e1e2e, #282a36);
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.marquee {
+  display: flex;
+  min-width: 200%;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 60px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffffff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.marquee-content span {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.marquee-content span:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
